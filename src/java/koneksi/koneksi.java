@@ -19,7 +19,7 @@ public class koneksi {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             connect = (Connection) DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/uts_jsp", "root", "");
+                    .getConnection("jdbc:mysql://localhost:3306/uts_jwp", "root", "");
             return connect;
         } catch (Exception e) {
         }

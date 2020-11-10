@@ -45,7 +45,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("   <head>\n");
       out.write("      <meta charset=\"utf-8\">\n");
-      out.write("      <title>Form Buidata Diri Peserta</title>\n");
+      out.write("      <title>Form Biodata Diri Peserta</title>\n");
       out.write("      <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\">\n");
       out.write("   </head>\n");
       out.write("   <style type=\"text/css\">\n");
@@ -74,7 +74,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"container-fluid mt-3\">\n");
       out.write("            <form method=\"post\" action=\"simpan.jsp\">\n");
       out.write("            <label>NISN</label>\n");
-      out.write("                \n");
+      out.write("\n");
       out.write("            <div class=\"row\">\n");
       out.write("               <div class=\"col-6 col-sm-3\">\n");
       out.write("                  <input type=\"text\" class=\"form-control\" placeholder=\"Nomor Induk Siswa Nasional\" name=\"txtnisn\">\n");
@@ -94,15 +94,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("            <div class=\"form-row\">\n");
       out.write("                <div class=\"col-5 col-sm-1\">\n");
-      out.write("                   <input type=\"text\" class=\"form-control\" placeholder=\"Tempat\" name=\"txttempatlahir\">\n");
+      out.write("                   <input type=\"text\" class=\"form-control\" placeholder=\"Tempat\" name=\"tempatlahir\">\n");
       out.write("                </div>   \n");
-      out.write("                \n");
       out.write("                <div class=\"col-sm-1\">\n");
       out.write("                   <select name=\"tanggal\" class=\"form-control\">\n");
-      out.write("                   <option>Tanggal</option>\n");
+      out.write("                   <option disabled selected>Tanggal</option>\n");
       out.write("                   ");
 
-                     for (int i = 1; i <= 31; i++) {
+                     for (int i = 1; i <= 30; i++) {
                    
       out.write("\n");
       out.write("                   <option value=\"");
@@ -120,8 +119,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("                <div class=\"col-sm-1\">\n");
       out.write("                   <select name=\"bulan\" class=\"form-control\">\n");
-      out.write("                   <option>Bulan</option>\n");
-      out.write("                   <option value=\"1\">Januari</option>\n");
+      out.write("                   <option disabled selected>Bulan</option>\n");
+      out.write("                       <option value=\"1\">Januari</option>\n");
       out.write("                       <option value=\"2\">Februari</option>\n");
       out.write("                       <option value=\"3\">Maret</option>\n");
       out.write("                       <option value=\"4\">April</option>\n");
@@ -135,10 +134,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                       <option value=\"12\">Desember</option>\n");
       out.write("                   </select>\n");
       out.write("                 </div>\n");
-      out.write("                   \n");
       out.write("                 <div class=\"col-sm-1\">\n");
       out.write("                  <select name=\"tahun\" class=\"form-control\">\n");
-      out.write("                  <option>Tahun</option>\n");
+      out.write("                  <option disabled selected>Tahun</option>\n");
       out.write("                      ");
 
                          for (int i = 2000; i <= 2020; i++) {
@@ -156,15 +154,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                      
       out.write("\n");
       out.write("                  </select>\n");
-      out.write("                 </div>\n");
-      out.write("                  \n");
+      out.write("                 </div>\t \n");
       out.write("            </div>\n");
       out.write("            <br>\n");
       out.write("\n");
       out.write("            <label>Alamat</label>\n");
       out.write("            <div class=\"row\">\n");
       out.write("               <div class=\"col-6 col-sm-3\">\n");
-      out.write("                  <textarea class=\"form-control\" id=\"text\" placeholder=\"Type in your message\" rows=\"5\" style=\"resize: none;\" name=\"txtalamat\"></textarea>\n");
+      out.write("                  <textarea class=\"form-control\" placeholder=\"Alamat Anda\" rows=\"5\" style=\"resize: none;\" name=\"txtalamat\"></textarea>\n");
       out.write("               </div>\n");
       out.write("            </div>\n");
       out.write("\n");
@@ -174,11 +171,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"row\">\n");
       out.write("               <div class=\"col-6 col-sm-1\">\n");
       out.write("                  <select name=\"umur\" class=\"form-control\">\n");
-      out.write("                  <option value=\"1\">1</option>\n");
-      out.write("                  <option value=\"2\">2</option>\n");
-      out.write("                  <option value=\"3\">3</option>\n");
-      out.write("                  <option value=\"4\">4</option>\n");
-      out.write("                  <option value=\"5\">5</option>\n");
+      out.write("                  <option disabled selected>Umur</option>\n");
       out.write("                  <option value=\"6\">6</option>\n");
       out.write("                  <option value=\"7\">7</option>\n");
       out.write("                  <option value=\"8\">8</option>\n");
@@ -197,9 +190,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <label>Jenis Kelamin</label>\n");
       out.write("            <div class=\"row\">\n");
       out.write("               <div class=\"col-6 col-sm-1\">\n");
-      out.write("                  <input type=\"radio\" name=\"jenis_kelamin\">&nbsp;<span class=\"badge badge-success\">Laki-laki</span>\n");
+      out.write("                  <input type=\"radio\" name=\"jenis_kelamin\" value=\"Laki-Laki\">&nbsp;<span class=\"badge badge-success\">Laki-laki</span>\n");
       out.write("                  <br>\n");
-      out.write("                  <input type=\"radio\" name=\"jenis_kelamin\">&nbsp;<span class=\"badge badge-info\">Perempuan</span>\n");
+      out.write("                  <input type=\"radio\" name=\"jenis_kelamin\" value=\"Perempuan\">&nbsp;<span class=\"badge badge-info\">Perempuan</span>\n");
       out.write("               </div>\n");
       out.write("            </div>\n");
       out.write("            <br>\n");
@@ -212,7 +205,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <br>\n");
       out.write("\n");
       out.write("            <div class=\"tombol\">\n");
-      out.write("                <button type=\"submit\" class=\"btn btn-primary \" name=\"cmdsimpan\">Simpan</button>\n");
+      out.write("                <button type=\"submit\" class=\"btn btn-primary \" name=\"cmdsimpan\" value=\"simpan\">Simpan</button>\n");
       out.write("                <button type=\"button\" class=\"btn btn-warning\" name=\"cmdsimpan\">ubah</button>\n");
       out.write("                <button type=\"button\" class=\"btn btn-danger\" name=\"cmdsimpan\">Hapus</button>\n");
       out.write("                <button type=\"reset\" class=\"btn btn-outline-secondary\">batal</button>\n");
