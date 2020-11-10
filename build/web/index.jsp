@@ -26,12 +26,12 @@
    </style>
    <body>
    	<nav class="navbar"> 
-        <label>Biodata Diri Peserta Didik</label>
-     </nav>  
+            <label>Biodata Diri Peserta Didik</label>
+        </nav>  
         <div class="container-fluid mt-3">
             <form method="post" action="simpan.jsp">
             <label>NISN</label>
-
+                
             <div class="row">
                <div class="col-6 col-sm-3">
                   <input type="text" class="form-control" placeholder="Nomor Induk Siswa Nasional" name="txtnisn">
@@ -51,8 +51,9 @@
 
             <div class="form-row">
                 <div class="col-5 col-sm-1">
-                   <input type="text" class="form-control" placeholder="Tempat" name="tempatlahir">
+                   <input type="text" class="form-control" placeholder="Tempat" name="txttempatlahir">
                 </div>   
+                
                 <div class="col-sm-1">
                    <select name="tanggal" class="form-control">
                    <option>Tanggal</option>
@@ -82,6 +83,7 @@
                        <option value="12">Desember</option>
                    </select>
                  </div>
+                   
                  <div class="col-sm-1">
                   <select name="tahun" class="form-control">
                   <option>Tahun</option>
@@ -93,24 +95,25 @@
                          }
                      %>
                   </select>
-                 </div>	 
+                 </div>
+                  
             </div>
             <br>
 
             <label>Alamat</label>
             <div class="row">
                <div class="col-6 col-sm-3">
-                  <textarea class="form-control" id="text" name="text" placeholder="Type in your message" rows="5" style="resize: none;" name="txtalamat"></textarea>
+                  <textarea class="form-control" id="text" placeholder="Type in your message" rows="5" style="resize: none;" name="txtalamat"></textarea>
                </div>
             </div>
 
             <br>
 
             <label>Umur</label>
+            
             <div class="row">
                <div class="col-6 col-sm-1">
                   <select name="umur" class="form-control">
-                  <option>Umur</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -134,9 +137,9 @@
             <label>Jenis Kelamin</label>
             <div class="row">
                <div class="col-6 col-sm-1">
-                  <input type="radio" name="jenis_kelamin" >&nbsp;<span class="badge badge-success">Laki-laki</span>
+                  <input type="radio" name="jenis_kelamin">&nbsp;<span class="badge badge-success">Laki-laki</span>
                   <br>
-                  <input type="radio" name="jenis_kelamin" >&nbsp;<span class="badge badge-info">Perempuan</span>
+                  <input type="radio" name="jenis_kelamin">&nbsp;<span class="badge badge-info">Perempuan</span>
                </div>
             </div>
             <br>
