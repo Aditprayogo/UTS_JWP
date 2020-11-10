@@ -1,4 +1,8 @@
-
+<%-- 
+    Document   : index
+    Created on : Nov 11, 2020, 11:10:22 AM
+    Author     : aditprayogo
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="koneksi.koneksi" %>
 <%@page import="java.sql.*" %>
@@ -8,9 +12,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>simpan</title>
-    </head>
+      <meta charset="utf-8">
+      <title>Form Biodata Diri Peserta</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <style type="text/css">
+   	button{
+   		width: 9%;
+   	}
+
+   	.tombol button{
+   		margin-left: 2px;
+                
+   	}
+
+   	label{
+   		font-size: 14px;
+   		color: grey;
+   	}
+   	nav{
+   		background-color: black;
+   		color: white;
+   	}
+   </style>
+   </head>
     <body>
         <% 
             String nisn = request.getParameter("txtnisn");
@@ -36,7 +60,7 @@
                             +alamat+"', '"+umur+"', '"+jk+"', '"+no_hp+"')";
                     st.executeUpdate(sql);
                     conn.close();
-                    out.print("<h3>berhasil disimpan</h3>");
+                    out.print("<div class='alert alert-primary' role='alert'><h2>Data berhasil di simpan</h2></div>");
                     out.print("<a href='index.jsp'>Back</a>");
                 } catch (Exception e) {
                     out.print(e);
@@ -52,7 +76,7 @@
                     
                     if(res.next()) {
         %>
-       <nav class="navbar"> 
+     <nav class="navbar"> 
         <label>Biodata Diri Peserta Didik</label>
      </nav>  
         <div class="container-fluid mt-3">
@@ -61,16 +85,16 @@
 
             <div class="row">
                <div class="col-6 col-sm-3">
-                  <input type="text" class="form-control" placeholder="Nomor Induk Siswa Nasional" name="txtnisn" required>
+                  <input type="text" class="form-control" placeholder="Nomor Induk Siswa Nasional" name="txtnisn" value="<%= res.getString(1) %>">
                </div>
-               <button type="button" class="btn btn-success" name="cmdsimpan">Cari</button>
+               <button type="submit" class="btn btn-success" name="cmdsimpan" value="Cari">Cari</button>
             </div>
 
             <br>
             <label>Nama Lengkap</label>
             <div class="row">
                <div class="col-6 col-md-5">
-                  <input type="text" class="form-control" placeholder="Nama Lengkap" name="txtnama" required>
+                  <input type="text" class="form-control" placeholder="Nama Lengkap" name="txtnama" value="<%= res.getString(2) %>">
                </div>
             </div>
             <br>
@@ -78,47 +102,58 @@
 
             <div class="form-row">
                 <div class="col-5 col-sm-1">
-                   <input type="text" class="form-control" placeholder="Tempat" name="tempatlahir">
+                   <input type="text" class="form-control" placeholder="Tempat" name="tempatlahir" value="<%= res.getString(3) %>">
                 </div>   
                 <div class="col-sm-1">
                    <select name="tanggal" class="form-control" required>
-                   <option disabled selected>Tanggal</option>
+                   <option disabled>Tanggal</option>
                    <%
+                     int tesTanggal = Integer.parseInt(res.getString(4));
                      for (int i = 1; i <= 30; i++) {
-                   %>
-                   <option value="<%=i%>"><%=i%></option>
-                   <%
+                         if (tesTanggal == i ) {
+                    %>
+                            <option value="<%=i%>" selected><%=i%></option>
+                    <%   } else {
+                    %>
+                            <option value="<%=i%>"><%=i%></option>
+                    <%     }
                      }
                     %>
                    </select>
                 </div>
                 <div class="col-sm-1">
                    <select name="bulan" class="form-control" required>
-                   <option disabled selected>Bulan</option>
-                       <option value="1">Januari</option>
-                       <option value="2">Februari</option>
-                       <option value="3">Maret</option>
-                       <option value="4">April</option>
-                       <option value="5">Mei</option>
-                       <option value="6">Juni</option>
-                       <option value="7">Juli</option>
-                       <option value="8">Agustus</option>
-                       <option value="9">September</option>
-                       <option value="10">Oktober</option>
-                       <option value="11">November</option>
-                       <option value="12">Desember</option>
+                   <option disabled>Bulan</option>
+                    <%
+                        int tesBulan = Integer.parseInt(res.getString(5));
+                        
+                        for (int i = 1; i <= 12; i++) {
+                         if (tesBulan == i ) {
+                    %>
+                           <option value="<%=i%>" selected><%=koneksi.getBulan(i)%></option>
+                    <%   } else {
+                    %>
+                           <option value="<%=i%>"><%=koneksi.getBulan(i)%></option>
+                    <%   }
+                     }
+                    %>
                    </select>
                  </div>
                  <div class="col-sm-1">
                   <select name="tahun" class="form-control" required>
                   <option disabled selected>Tahun</option>
-                      <%
-                         for (int i = 2000; i <= 2020; i++) {
-                      %>
-                      <option value="<%=i%>"><%=i%></option>
-                      <% 
-                         }
-                     %>
+                     <%
+                     int tesTahun = Integer.parseInt(res.getString(6));
+                     for (int i = 2000; i <= 2020; i++) {
+                         if (tesTahun == i ) {
+                    %>
+                            <option value="<%=i%>" selected><%=i%></option>
+                    <%   } else {
+                    %>
+                            <option value="<%=i%>"><%=i%></option>
+                    <%     }
+                     }
+                    %>
                   </select>
                  </div>	 
             </div>
@@ -127,7 +162,7 @@
             <label>Alamat</label>
             <div class="row">
                <div class="col-6 col-sm-3">
-                  <textarea class="form-control" placeholder="Alamat Anda" rows="5" style="resize: none;" name="txtalamat" required></textarea>
+                  <textarea class="form-control" placeholder="Alamat Anda" rows="5" style="resize: none;" name="txtalamat"><%= res.getString(7) %></textarea>
                </div>
             </div>
 
@@ -137,17 +172,19 @@
             <div class="row">
                <div class="col-6 col-sm-1">
                   <select name="umur" class="form-control" required>
-                  <option disabled selected>Umur</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
+                  <option disabled>Umur</option>
+                   <%
+                     int tesUmur = Integer.parseInt(res.getString(8));
+                     for (int i = 6; i <= 15; i++) {
+                         if (tesUmur == i ) {
+                    %>
+                            <option value="<%=i%>" selected><%=i%></option>
+                    <%   } else {
+                    %>
+                            <option value="<%=i%>"><%=i%></option>
+                    <%     }
+                     }
+                    %>
                   </select>
                </div>
             </div>
@@ -156,30 +193,37 @@
             <label>Jenis Kelamin</label>
             <div class="row">
                <div class="col-6 col-sm-1">
-                  <input type="radio" name="jenis_kelamin" value="Laki-Laki" required>&nbsp;<span class="badge badge-success">Laki-laki</span>
-                  <br>
-                  <input type="radio" name="jenis_kelamin" value="Perempuan">&nbsp;<span class="badge badge-info">Perempuan</span>
+                   <%
+                         if (res.getString(9).equals("Laki-Laki") ) {
+                             out.print("<input type='radio' name='jenis_kelamin' value='Laki-Laki' checked>&nbsp;<span class='badge badge-success'>Laki-laki</span>"
+                                     + "<br>"
+                                     + "<input type='radio' name='jenis_kelamin' value='Perempuan'>&nbsp;<span class='badge badge-info'>Perempuan</span>");
+                         }else{
+                             out.print("<input type='radio' name='jenis_kelamin' value='Laki-Laki'>&nbsp;<span class='badge badge-success'>Laki-laki</span>"
+                                     + "<br>"
+                                     + "<input type='radio' name='jenis_kelamin' value='Perempuan' checked>&nbsp;<span class='badge badge-info'>Perempuan</span>");
+                         }
+                    %>
                </div>
             </div>
             <br>
             <label>No Hp Orangtua</label>
             <div class="row">
                <div class="col-6 col-md-5">
-                  <input type="text" class="form-control" placeholder="No Hp Orangtua" name="txtnohp_ortu" required>
+                  <input type="text" class="form-control" placeholder="No Hp Orangtua" name="txtnohp_ortu" value="<%= res.getString(10) %>">
                </div>
             </div>
             <br>
 
             <div class="tombol">
-                <button type="submit" class="btn btn-primary " name="cmdsimpan">Simpan</button>
-                <button type="button" class="btn btn-warning" name="cmdsimpan">ubah</button>
-                <button type="button" class="btn btn-danger" name="cmdsimpan">Hapus</button>
+                <button type="submit" class="btn btn-primary " name="cmdsimpan" value="simpan">Simpan</button>
+                <button type="submit" class="btn btn-warning" name="cmdsimpan" value="ubah">ubah</button>
+                <button type="submit" class="btn btn-danger" name="cmdsimpan" value="hapus">Hapus</button>
                 <button type="reset" class="btn btn-outline-secondary">batal</button>
             </div>
 
 
-            </form>
-	</div>	
+            </form>	
         <%
             }
                 }catch (Exception e) {
@@ -195,7 +239,7 @@
                     String sql1 = "update biodata set nama = '" + nama + "', tempat_lahir = '" + tempat_lahir + "', tanggal = '" + tanggal + "', bulan = '" + bulan + "', tahun = '" + tahun + "', alamat = '" + alamat + "', umur = '" + umur + "', jenis_kelamin = '" + jk + "', nohp_ortu = '" + no_hp + "' where nisn ='" + nisn +"'";
                     st.executeUpdate(sql1);
                     conn.close();
-                    out.print("<h3>berhasil diubah</h3>");
+                    out.print("<div class='alert alert-success' role='alert'><h2>berhasil diubah</h2></div>");
                     out.print("<a href='index.jsp'>Back</a>");
                 } catch (Exception e) {
 
@@ -211,7 +255,7 @@
                        String sql="delete from biodata where nisn='"+nisn+"'";
                        st.executeUpdate(sql);
                         conn.close();
-                    out.print("<h3>berhasil dihapus</h3>");
+                    out.print("<div class='alert alert-danger' role='alert'><h2>berhasil dihapus</h2></div>");
                     out.print("<a href='index.jsp'>Back</a>");
                 }
                 catch(Exception e)
@@ -220,4 +264,9 @@
                 }
              }
         %>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    </body>
 </html>

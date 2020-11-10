@@ -1,3 +1,8 @@
+<%-- 
+    Document   : index
+    Created on : Nov 11, 2020, 11:10:22 AM
+    Author     : aditprayogo
+--%>
 <!DOCTYPE html>
 <html>
    <head>
@@ -36,7 +41,7 @@
                <div class="col-6 col-sm-3">
                   <input type="text" class="form-control" placeholder="Nomor Induk Siswa Nasional" name="txtnisn">
                </div>
-               <button type="button" class="btn btn-success" name="cmdsimpan">Cari</button>
+                <button type="submit" class="btn btn-success" name="cmdsimpan" value="Cari">Cari</button>
             </div>
 
             <br>
@@ -145,8 +150,8 @@
 
             <div class="tombol">
                 <button type="submit" class="btn btn-primary " name="cmdsimpan" value="simpan">Simpan</button>
-                <button type="button" class="btn btn-warning" name="cmdsimpan">ubah</button>
-                <button type="button" class="btn btn-danger" name="cmdsimpan">Hapus</button>
+                <button type="submit" class="btn btn-warning" name="cmdsimpan" value="ubah">ubah</button>
+                <button type="submit" class="btn btn-danger" name="cmdsimpan" value="hapus">Hapus</button>
                 <button type="reset" class="btn btn-outline-secondary">batal</button>
             </div>
 

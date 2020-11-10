@@ -79,7 +79,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("               <div class=\"col-6 col-sm-3\">\n");
       out.write("                  <input type=\"text\" class=\"form-control\" placeholder=\"Nomor Induk Siswa Nasional\" name=\"txtnisn\">\n");
       out.write("               </div>\n");
-      out.write("               <button type=\"button\" class=\"btn btn-success\" name=\"cmdsimpan\">Cari</button>\n");
+      out.write("                <button type=\"submit\" class=\"btn btn-success\" name=\"cmdsimpan\" value=\"Cari\">Cari</button>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("            <br>\n");
@@ -206,8 +206,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("            <div class=\"tombol\">\n");
       out.write("                <button type=\"submit\" class=\"btn btn-primary \" name=\"cmdsimpan\" value=\"simpan\">Simpan</button>\n");
-      out.write("                <button type=\"button\" class=\"btn btn-warning\" name=\"cmdsimpan\">ubah</button>\n");
-      out.write("                <button type=\"button\" class=\"btn btn-danger\" name=\"cmdsimpan\">Hapus</button>\n");
+      out.write("                <button type=\"submit\" class=\"btn btn-warning\" name=\"cmdsimpan\" value=\"ubah\">ubah</button>\n");
+      out.write("                <button type=\"submit\" class=\"btn btn-danger\" name=\"cmdsimpan\" value=\"hapus\">Hapus</button>\n");
       out.write("                <button type=\"reset\" class=\"btn btn-outline-secondary\">batal</button>\n");
       out.write("            </div>\n");
       out.write("\n");
